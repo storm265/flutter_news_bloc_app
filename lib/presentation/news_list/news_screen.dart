@@ -35,7 +35,7 @@ class NewsScreen extends StatelessWidget {
         child: Stack(
           children: [
             BlocBuilder<NewsCategoriesCubit, NewsCategoriesState>(
-              builder: (context, state) {
+              builder: (context, newsCategoriesState) {
                 return Column(
                   children: [
                     // CupertinoButton.filled(
@@ -62,7 +62,7 @@ class NewsScreen extends StatelessWidget {
                                 .read<NewsCategoriesCubit>()
                                 .updateSelectedNewsIndex(index);
                           },
-                          isSelected: state.selectedCategoryIndex == index
+                          isSelected: newsCategoriesState.selectedCategoryIndex == index
                               ? true
                               : false,
                           title: context
@@ -79,7 +79,7 @@ class NewsScreen extends StatelessWidget {
                                 category: context
                                         .read<NewsCategoriesCubit>()
                                         .newsCategories[
-                                    state.selectedCategoryIndex]),
+                                    newsCategoriesState.selectedCategoryIndex]),
                         builder: (context, snapshot) {
                           if (snapshot.hasError) {
                             return Center(

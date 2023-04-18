@@ -40,6 +40,8 @@ dependencies:
   dio:
   intl:
   flutter_dotenv:
+  shimmer:
+  shared_preferences:
   auto_route: 
 
 
