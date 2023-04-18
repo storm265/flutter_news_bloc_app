@@ -40,8 +40,6 @@ dependencies:
   dio:
   intl:
   flutter_dotenv:
-  geolocator:
-  geocoding:
   auto_route: 
 
 
