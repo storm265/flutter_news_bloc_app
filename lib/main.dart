@@ -6,7 +6,7 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:todo_bloc_practice/data/datasources/news/news_remote_datasource_impl.dart';
 import 'package:todo_bloc_practice/data/repository/news_remote_repository_impl.dart';
 import 'package:todo_bloc_practice/presentation/home_page/cubit/navigation_cubit.dart';
-import 'package:todo_bloc_practice/presentation/home_page/home_screen.dart';
+import 'package:todo_bloc_practice/presentation/home_page/home_page.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
 import 'package:todo_bloc_practice/services/network_source.dart';
 import 'presentation/news_list/cubit/news_categories_cubit.dart';
@@ -48,7 +48,7 @@ class MyApp extends StatelessWidget {
       builder: (_, theme) {
         return CupertinoApp(
           theme: theme,
-          home: const MyHomePage(),
+          home: const HomePage(),
         );
       },
     );
