@@ -1,21 +1,15 @@
-import 'dart:developer';
-import 'dart:ui';
-
-import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_bloc_practice/data/datasources/news/news_remote_datasource_impl.dart';
 import 'package:todo_bloc_practice/presentation/news_list/widgets/news_container_widget.dart';
 import 'package:todo_bloc_practice/presentation/news_list/widgets/search_bar_widget.dart';
-import 'package:todo_bloc_practice/schemas/api_scheme.dart';
-import 'package:todo_bloc_practice/services/network_source.dart';
 import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
 import 'cubit/news_categories_cubit.dart';
+import 'package:auto_route/annotations.dart';
 
+@RoutePage()
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
 
@@ -23,6 +17,7 @@ class NewsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
+        leading: SizedBox(),
         middle: Text(
           'News',
           style: TextStyle(
@@ -62,9 +57,10 @@ class NewsScreen extends StatelessWidget {
                                 .read<NewsCategoriesCubit>()
                                 .updateSelectedNewsIndex(index);
                           },
-                          isSelected: newsCategoriesState.selectedCategoryIndex == index
-                              ? true
-                              : false,
+                          isSelected:
+                              newsCategoriesState.selectedCategoryIndex == index
+                                  ? true
+                                  : false,
                           title: context
                               .read<NewsCategoriesCubit>()
                               .newsCategories[index],
@@ -143,7 +139,9 @@ class NewsScreen extends StatelessWidget {
                               ),
                             );
                           } else {
-                            return const CircularProgressIndicator.adaptive();
+                            return const Center(
+                              child: CircularProgressIndicator.adaptive(),
+                            );
                           }
                         },
                       ),

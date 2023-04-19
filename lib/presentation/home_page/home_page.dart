@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'cubit/navigation_cubit.dart';
+import 'package:auto_route/annotations.dart';
 
+@RoutePage()
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 

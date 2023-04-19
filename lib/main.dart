@@ -6,9 +6,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:todo_bloc_practice/data/datasources/news/news_remote_datasource_impl.dart';
 import 'package:todo_bloc_practice/data/repository/news_remote_repository_impl.dart';
 import 'package:todo_bloc_practice/presentation/home_page/cubit/navigation_cubit.dart';
-import 'package:todo_bloc_practice/presentation/home_page/home_page.dart';
+import 'package:todo_bloc_practice/presentation/initial_page/cubit/initial_cubit.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
 import 'package:todo_bloc_practice/services/network_source.dart';
+import 'package:todo_bloc_practice/services/route_service/route_service.dart';
 import 'presentation/news_list/cubit/news_categories_cubit.dart';
 
 Future<void> main() async {
@@ -23,6 +24,9 @@ Future<void> main() async {
         ),
         BlocProvider<ThemeCubit>(
           create: (_) => ThemeCubit(),
+        ),
+        BlocProvider<InitialCubit>(
+          create: (_) => InitialCubit(),
         ),
         BlocProvider<NewsCategoriesCubit>(
           create: (_) => NewsCategoriesCubit(
@@ -39,16 +43,23 @@ Future<void> main() async {
   );
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final _routeService = RouteService();
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, CupertinoThemeData>(
       builder: (_, theme) {
-        return CupertinoApp(
+        return CupertinoApp.router(
+          routerConfig:
+              _routeService.config(initialRoutes: [const InititialRoute()]),
           theme: theme,
-          home: const HomePage(),
         );
       },
     );

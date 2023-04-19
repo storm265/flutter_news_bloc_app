@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
+import 'package:auto_route/annotations.dart';
 
+@RoutePage()
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 

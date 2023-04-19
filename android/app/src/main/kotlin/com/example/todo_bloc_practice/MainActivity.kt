@@ -1,4 +1,4 @@
-package com.example.todo_bloc_practice
+package com.example.news_bloc_practice
 
 import io.flutter.embedding.android.FlutterActivity
 
