@@ -4,6 +4,8 @@ import 'package:todo_bloc_practice/data/models/top_headline_model/top_headline_m
 abstract class NewsRemoteRepository {
   Future<EverythingModel> getEverything({required String title});
 
-  Future<TopHeadlineModel> getTopHeadlines(
-      {String countryCode = 'us', String category = 'general'});
+  Future<TopHeadlineModel> getTopHeadlines({
+    String countryCode = 'us',
+    String category = 'general',
+  });
 }

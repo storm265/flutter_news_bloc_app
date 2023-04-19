@@ -31,13 +31,15 @@ class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
   }
 }
 
+@Deprecated('its fake data')
 final _fakeTopHeadlines = TopHeadlineModel(
   totalResults: 35,
   articles: [
     ArticleModel(
         author: 'author1',
         title: 'title dfuioghuidfhguihdfuihgidfuihgihdfihgihdfiuhgdfg',
-        description: 'description',
+        description:
+            'description fsdioFHPODSHFOSDHFUISDHFHSDUFHS(FIHFUDHIFSDF)',
         url: 'url',
         urlToImage:
             "https://image.cnbcfm.com/api/v1/image/107226886-16818191732023-04-18t070526z_180960544_rc2vg0aph3kv_rtrmadp_0_ukraine-crisis-putin-kherson.jpeg?v=1681821298&w=1920&h=1080",
@@ -46,7 +48,8 @@ final _fakeTopHeadlines = TopHeadlineModel(
     ArticleModel(
         author: 'author2222',
         title: 'title dfuioghuidfhguihdfuihgidfuihgihdfihgihdfiuhgdfg',
-        description: 'description 22222',
+        description:
+            'description gdiogjodjgijidorjgijzdrojgoidfjgodfghzidofhgiodfhogzdfuioghodghfduigoghduigdfgdfgd',
         url: 'url',
         urlToImage:
             "https://image.cnbcfm.com/api/v1/image/107226886-16818191732023-04-18t070526z_180960544_rc2vg0aph3kv_rtrmadp_0_ukraine-crisis-putin-kherson.jpeg?v=1681821298&w=1920&h=1080",
@@ -55,7 +58,8 @@ final _fakeTopHeadlines = TopHeadlineModel(
     ArticleModel(
         author: 'author3333333333333',
         title: 'title dfuioghuidfhguihdfuihgidfuihgihdfihgihdfiuhgdfg',
-        description: 'description 333333',
+        description:
+            'description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333description 333333',
         url: 'url',
         urlToImage:
             "https://image.cnbcfm.com/api/v1/image/107226886-16818191732023-04-18t070526z_180960544_rc2vg0aph3kv_rtrmadp_0_ukraine-crisis-putin-kherson.jpeg?v=1681821298&w=1920&h=1080",

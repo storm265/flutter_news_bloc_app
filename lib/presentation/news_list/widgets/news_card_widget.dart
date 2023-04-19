@@ -16,7 +16,7 @@ class NewsCardWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        padding: const EdgeInsets.all(6.0),
+        padding: const EdgeInsets.all(12.0),
         decoration: BoxDecoration(
           color: isLightTheme(context: context) ? Colors.white : Colors.black,
           borderRadius: BorderRadius.circular(8),
@@ -38,18 +38,27 @@ class NewsCardWidget extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            Text(articleModel.description ?? ''),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const Icon(Icons.more_horiz),
-                Text(articleModel.publishedAt != null
+            Text(
+              articleModel.description ?? '',
+              style: const TextStyle(
+                fontWeight: FontWeight.w300,
+                fontSize: 14,
+              ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: Text(
+                articleModel.publishedAt != null
                     ? DateFormat('dd.MM')
                         .add_jm()
                         .format(DateTime.parse(articleModel.publishedAt!))
-                    : '')
-              ],
-            )
+                    : '',
+                style: const TextStyle(
+                  fontWeight: FontWeight.w200,
+                  fontSize: 14,
+                ),
+              ),
+            ),
           ],
         ),
       ),
