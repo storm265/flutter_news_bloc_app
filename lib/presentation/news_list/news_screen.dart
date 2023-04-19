@@ -7,6 +7,9 @@ import 'package:todo_bloc_practice/presentation/news_list/widgets/search_bar_wid
 import 'cubit/news_categories_cubit.dart';
 import 'package:auto_route/annotations.dart';
 
+import 'widgets/shimmer_news_card_widget.dart';
+
+// TODO refactor current cubit. Shouls be 2 cubits
 @RoutePage()
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
@@ -80,6 +83,8 @@ class NewsScreen extends StatelessWidget {
                                 itemBuilder: (context, index) {
                                   final article =
                                       topHeadlineModel.articles[index];
+
+                                  //   return ShimmerNewsCardWidget();
                                   return NewsCardWidget(
                                     articleModel: article,
                                   );
