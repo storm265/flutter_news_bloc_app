@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_bloc_practice/presentation/settings/app_themes.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
 import 'package:auto_route/annotations.dart';
+import 'package:todo_bloc_practice/presentation/settings/cubit/theme_state.dart';
+import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
 @RoutePage()
 class SettingsScreen extends StatefulWidget {
@@ -17,16 +20,20 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text('ToDo list'),
+        middle: Text('Settings'),
       ),
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(CupertinoIcons.moon),
-            CupertinoSwitch(
-              value: context.watch<ThemeCubit>().isLightTheme,
-              onChanged: (_) => context.read<ThemeCubit>().updateTheme(),
+            BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, state) {
+                return CupertinoSwitch(
+                  value: isLightTheme(context: context) ? false : true,
+                  onChanged: (_) => context.read<ThemeCubit>().updateTheme(),
+                );
+              },
             ),
             const Icon(CupertinoIcons.sun_max),
           ],

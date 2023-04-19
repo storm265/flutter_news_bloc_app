@@ -8,6 +8,7 @@ import 'package:todo_bloc_practice/data/repository/news_remote_repository_impl.d
 import 'package:todo_bloc_practice/presentation/home_page/cubit/navigation_cubit.dart';
 import 'package:todo_bloc_practice/presentation/initial_page/cubit/initial_cubit.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
+import 'package:todo_bloc_practice/presentation/settings/cubit/theme_state.dart';
 import 'package:todo_bloc_practice/services/network_source.dart';
 import 'package:todo_bloc_practice/services/route_service/route_service.dart';
 import 'presentation/news_list/cubit/news_categories_cubit.dart';
@@ -54,14 +55,10 @@ class _MyAppState extends State<MyApp> {
   final _routeService = RouteService();
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ThemeCubit, CupertinoThemeData>(
-      builder: (_, theme) {
-        return CupertinoApp.router(
-          routerConfig:
-              _routeService.config(initialRoutes: [const InititialRoute()]),
-          theme: theme,
-        );
-      },
+    return CupertinoApp.router(
+      routerConfig:
+          _routeService.config(initialRoutes: [const InititialRoute()]),
+      theme: context.watch<ThemeCubit>().state.theme,
     );
   }
 }
