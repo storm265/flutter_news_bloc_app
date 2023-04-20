@@ -7,6 +7,7 @@ import 'package:todo_bloc_practice/data/datasources/news/news_remote_datasource_
 import 'package:todo_bloc_practice/data/repository/news_remote_repository_impl.dart';
 import 'package:todo_bloc_practice/presentation/home_page/cubit/navigation_cubit.dart';
 import 'package:todo_bloc_practice/presentation/initial_page/cubit/initial_cubit.dart';
+import 'package:todo_bloc_practice/presentation/news_list/bloc/news_bloc.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
 import 'package:todo_bloc_practice/services/network_source.dart';
 import 'package:todo_bloc_practice/services/route_service/route_service.dart';
@@ -29,13 +30,18 @@ Future<void> main() async {
           create: (_) => InitialCubit(),
         ),
         BlocProvider<NewsCategoriesCubit>(
-          create: (_) => NewsCategoriesCubit(
+          create: (_) => NewsCategoriesCubit(),
+        ),
+        BlocProvider<NewsBloc>(
+          create: (_) => NewsBloc(
             newsRemoteRepository: NewsRemoteRepositoryImpl(
               newsRemoteDataSource: NewsRemoteDataSourceImpl(
                 network: NetworkSource(),
               ),
             ),
-          ),
+          )..add(
+              const GetNewsEvent(),
+            ),
         ),
       ],
       child: const MyApp(),
