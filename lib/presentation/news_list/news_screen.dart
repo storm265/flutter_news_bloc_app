@@ -58,6 +58,13 @@ class NewsScreen extends StatelessWidget {
                                 size: 35,
                               ),
                               Text(state.error),
+                              const SizedBox(height: 20),
+                              GestureDetector(
+                                onTap: () => context
+                                    .read<NewsBloc>()
+                                    .add(const GetNewsEvent()),
+                                child: const Icon(CupertinoIcons.refresh),
+                              ),
                             ],
                           ),
                         );

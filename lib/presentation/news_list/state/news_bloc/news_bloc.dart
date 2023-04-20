@@ -26,8 +26,9 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> with ConnectionStatusMixin {
         if (await isConnected()) {
           final topTitlesModel = await _getTopTitles();
           emit(NewsLoadedState(topHeadlineModel: topTitlesModel));
+        } else {
+          emit(const NewsNoNetworkState(error: 'Check internet connection'));
         }
-        emit(const NewsNoNetworkState(error: 'Check internet connection'));
       } catch (e) {
         emit(NewsErrorState(error: e.toString()));
       }
