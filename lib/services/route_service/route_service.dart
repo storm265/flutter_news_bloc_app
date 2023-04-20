@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:todo_bloc_practice/presentation/home_page/home_page.dart';
 import 'package:todo_bloc_practice/presentation/initial_page/initial_page.dart';
-import 'package:todo_bloc_practice/presentation/news_list/news_screen.dart';
-import 'package:todo_bloc_practice/presentation/settings/settings_screen.dart';
+import 'package:todo_bloc_practice/presentation/news_page/news_page.dart';
+import 'package:todo_bloc_practice/presentation/settings/settings_page.dart';
 part 'route_service.gr.dart';
 
 @AutoRouterConfig()

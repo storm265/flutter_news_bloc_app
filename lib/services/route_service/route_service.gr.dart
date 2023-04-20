@@ -30,13 +30,13 @@ abstract class _$RouteService extends RootStackRouter {
     NewsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const NewsScreen(),
+        child: const NewsPage(),
       );
     },
     SettingsRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const SettingsScreen(),
+        child: const SettingsPage(),
       );
     },
   };
@@ -71,7 +71,7 @@ class InititialRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [NewsScreen]
+/// [NewsPage]
 class NewsRoute extends PageRouteInfo<void> {
   const NewsRoute({List<PageRouteInfo>? children})
       : super(
@@ -85,7 +85,7 @@ class NewsRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [SettingsScreen]
+/// [SettingsPage]
 class SettingsRoute extends PageRouteInfo<void> {
   const SettingsRoute({List<PageRouteInfo>? children})
       : super(

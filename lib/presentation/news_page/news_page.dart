@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc_practice/presentation/news_list/widgets/news_card_widget.dart';
-import 'package:todo_bloc_practice/presentation/news_list/widgets/news_categories_widgets/new_categories_widget.dart';
-import 'package:todo_bloc_practice/presentation/news_list/widgets/news_categories_widgets/news_container_widget.dart';
-import 'package:todo_bloc_practice/presentation/news_list/widgets/search_bar_widget.dart';
 import 'package:auto_route/annotations.dart';
+import 'package:todo_bloc_practice/presentation/news_page/widgets/news_card_widget.dart';
+import 'package:todo_bloc_practice/presentation/news_page/widgets/search_bar_widget.dart';
 import 'state/news_bloc/news_bloc.dart';
 import 'state/news_categories_cubit/news_categories_cubit.dart';
+import 'widgets/news_categories_widgets/new_categories_widget.dart';
 import 'widgets/shimmer_news_card_widget.dart';
 
 @RoutePage()
-class NewsScreen extends StatelessWidget {
-  const NewsScreen({super.key});
+class NewsPage extends StatelessWidget {
+  const NewsPage({super.key});
 
   @override
   Widget build(BuildContext context) {

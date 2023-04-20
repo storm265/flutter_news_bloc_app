@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc_practice/presentation/news_list/state/news_categories_cubit/news_categories_cubit.dart';
-import 'package:todo_bloc_practice/presentation/news_list/widgets/news_categories_widgets/news_container_widget.dart';
+import 'package:todo_bloc_practice/presentation/news_page/state/news_categories_cubit/news_categories_cubit.dart';
+import 'news_container_widget.dart';
 
 class NewsCategoriesWidget extends StatelessWidget {
   const NewsCategoriesWidget({super.key});

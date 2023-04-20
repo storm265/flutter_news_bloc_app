@@ -1,25 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc_practice/presentation/settings/app_themes.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_state.dart';
 import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
 @RoutePage()
-class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({super.key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key});
 
   @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
+  State<SettingsPage> createState() => _SettingsPageState();
 }
 
-class _SettingsScreenState extends State<SettingsScreen> {
+class _SettingsPageState extends State<SettingsPage> {
   int? selectedIndex;
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
+        leading: SizedBox(),
         middle: Text('Settings'),
       ),
       child: Center(
