@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc_practice/presentation/news_list/bloc/news_bloc.dart';
 import 'package:todo_bloc_practice/presentation/news_list/widgets/news_card_widget.dart';
 import 'package:todo_bloc_practice/presentation/news_list/widgets/news_container_widget.dart';
 import 'package:todo_bloc_practice/presentation/news_list/widgets/search_bar_widget.dart';
-import 'cubit/news_categories_cubit.dart';
 import 'package:auto_route/annotations.dart';
+import 'state/news_bloc/news_bloc.dart';
+import 'state/news_categories_cubit/news_categories_cubit.dart';
 import 'widgets/shimmer_news_card_widget.dart';
 
 @RoutePage()
