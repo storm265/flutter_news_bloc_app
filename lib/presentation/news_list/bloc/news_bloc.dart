@@ -3,11 +3,12 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc_practice/data/models/top_headline_model/top_headline_model.dart';
 import 'package:todo_bloc_practice/domain/repository/news_remote_repository.dart';
+import 'package:todo_bloc_practice/services/connection_status_service.dart';
 
 part 'news_event.dart';
 part 'news_state.dart';
 
-class NewsBloc extends Bloc<NewsEvent, NewsState> {
+class NewsBloc extends Bloc<NewsEvent, NewsState> with ConnectionStatusMixin {
   final NewsRemoteRepository _newsRemoteRepository;
 
   NewsBloc({required NewsRemoteRepository newsRemoteRepository})
@@ -22,8 +23,11 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     if (event is GetNewsEvent) {
       emit(NewsLoadingState());
       try {
-        final topTitlesModel = await _getTopTitles();
-        emit(NewsLoadedState(topHeadlineModel: topTitlesModel));
+        if (await isConnected()) {
+          final topTitlesModel = await _getTopTitles();
+          emit(NewsLoadedState(topHeadlineModel: topTitlesModel));
+        }
+        emit(const NewsNoNetworkState(error: 'Check internet connection'));
       } catch (e) {
         emit(NewsErrorState(error: e.toString()));
       }

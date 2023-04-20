@@ -16,7 +16,6 @@ class NewsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final newsCategoriesCubitRead = context.read<NewsCategoriesCubit>();
-
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         leading: SizedBox(),
@@ -48,15 +47,12 @@ class NewsScreen extends StatelessWidget {
                         itemCount:
                             newsCategoriesCubitRead.newsCategories.length,
                         itemBuilder: (context, index) => NewsContainerWidget(
-                          callback: () => context
-                              .read<NewsCategoriesCubit>()
+                          callback: () => newsCategoriesCubitRead
                               .updateSelectedNewsIndex(index),
                           isSelected: state.selectedCategoryIndex == index
                               ? true
                               : false,
-                          title: context
-                              .read<NewsCategoriesCubit>()
-                              .newsCategories[index],
+                          title: newsCategoriesCubitRead.newsCategories[index],
                         ),
                       ),
                     );
@@ -70,12 +66,25 @@ class NewsScreen extends StatelessWidget {
                           child: Text('We got error ${state.error}'),
                         );
                       }
+                      if (state is NewsNoNetworkState) {
+                        return Center(
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                CupertinoIcons.wifi,
+                                size: 35,
+                              ),
+                              Text(state.error),
+                            ],
+                          ),
+                        );
+                      }
+
                       if (state is NewsLoadingState) {
                         return ListView.builder(
                           itemCount: 11,
-                          itemBuilder: (context, index) {
-                            return const ShimmerNewsCardWidget();
-                          },
+                          itemBuilder: (_, __) => const ShimmerNewsCardWidget(),
                         );
                       }
                       if (state is NewsLoadedState) {
@@ -83,7 +92,7 @@ class NewsScreen extends StatelessWidget {
 
                         return ListView.builder(
                           itemCount: topHeadlineModel.articles.length,
-                          itemBuilder: (context, index) {
+                          itemBuilder: (_, index) {
                             final article = topHeadlineModel.articles[index];
 
                             return NewsCardWidget(

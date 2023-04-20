@@ -42,7 +42,8 @@ dependencies:
   flutter_dotenv:
   shimmer:
   shared_preferences:
-  auto_route: 
+  auto_route:
+  internet_connection_checker:
 
 
 dev_dependencies:

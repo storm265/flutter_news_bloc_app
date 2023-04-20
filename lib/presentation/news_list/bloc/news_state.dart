@@ -20,3 +20,8 @@ class NewsErrorState extends NewsState {
   final String error;
   const NewsErrorState({required this.error});
 }
+
+class NewsNoNetworkState extends NewsState {
+  final String error;
+  const NewsNoNetworkState({required this.error});
+}
