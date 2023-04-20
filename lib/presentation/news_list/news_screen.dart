@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,10 +7,8 @@ import 'package:todo_bloc_practice/presentation/news_list/widgets/news_container
 import 'package:todo_bloc_practice/presentation/news_list/widgets/search_bar_widget.dart';
 import 'cubit/news_categories_cubit.dart';
 import 'package:auto_route/annotations.dart';
-
 import 'widgets/shimmer_news_card_widget.dart';
 
-// TODO refactor current cubit. Shouls be 2 cubits
 @RoutePage()
 class NewsScreen extends StatelessWidget {
   const NewsScreen({super.key});
@@ -39,7 +35,6 @@ class NewsScreen extends StatelessWidget {
               children: [
                 BlocConsumer<NewsCategoriesCubit, NewsCategoriesState>(
                   listener: (context, state) {
-                    log('state $state');
                     if (state is NewsCategoriesUpdatedState) {
                       context.read<NewsBloc>().add(const GetNewsEvent());
                     }
