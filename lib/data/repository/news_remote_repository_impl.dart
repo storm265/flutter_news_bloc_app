@@ -27,7 +27,8 @@ class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
     );
     final model = TopHeadlineModel.fromJson(result);
 
-    return _fakeTopHeadlines;
+    //  return _fakeTopHeadlines;
+    return model;
   }
 }
 

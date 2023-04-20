@@ -83,9 +83,7 @@ class NewsPage extends StatelessWidget {
                           itemBuilder: (_, index) {
                             final article = topHeadlineModel.articles[index];
 
-                            return NewsCardWidget(
-                              articleModel: article,
-                            );
+                            return NewsCardWidget(articleModel: article);
                           },
                         );
                       }

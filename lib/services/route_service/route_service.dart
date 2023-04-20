@@ -1,4 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:todo_bloc_practice/data/models/article_model/article_model.dart';
+import 'package:todo_bloc_practice/presentation/detailed_news_page/detailed_news_page.dart';
 import 'package:todo_bloc_practice/presentation/home_page/home_page.dart';
 import 'package:todo_bloc_practice/presentation/initial_page/initial_page.dart';
 import 'package:todo_bloc_practice/presentation/news_page/news_page.dart';
@@ -16,5 +19,6 @@ class RouteService extends _$RouteService {
         AutoRoute(page: SettingsRoute.page),
         AutoRoute(page: NewsRoute.page),
         AutoRoute(page: HomeRoute.page),
+        AutoRoute(page: DetailedNewsRoute.page),
       ];
 }
