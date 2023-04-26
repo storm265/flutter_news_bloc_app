@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:todo_bloc_practice/presentation/news_page/widgets/news_card_widget.dart';
-import 'package:todo_bloc_practice/presentation/news_page/widgets/search_bar_widget.dart';
 import 'state/news_bloc/news_bloc.dart';
 import 'state/news_categories_cubit/news_categories_cubit.dart';
 import 'widgets/news_categories_widgets/new_categories_widget.dart';
@@ -27,75 +26,70 @@ class NewsPage extends StatelessWidget {
         ),
       ),
       child: SafeArea(
-        child: Stack(
+        child: Column(
           children: [
-            Column(
-              children: [
-                BlocConsumer<NewsCategoriesCubit, NewsCategoriesState>(
-                  listener: (context, state) {
-                    if (state is NewsCategoriesUpdatedState) {
-                      context.read<NewsBloc>().add(const GetNewsEvent());
-                    }
-                  },
-                  builder: (context, state) => const NewsCategoriesWidget(),
-                ),
-                Expanded(
-                  child: BlocBuilder<NewsBloc, NewsState>(
-                    builder: (context, state) {
-                      if (state is NewsErrorState) {
-                        return Center(
-                          child: Text('We got error ${state.error}'),
-                        );
-                      }
-                      if (state is NewsNoNetworkState) {
-                        return Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                CupertinoIcons.wifi,
-                                size: 35,
-                              ),
-                              Text(state.error),
-                              const SizedBox(height: 20),
-                              GestureDetector(
-                                onTap: () => context
-                                    .read<NewsBloc>()
-                                    .add(const GetNewsEvent()),
-                                child: const Icon(CupertinoIcons.refresh),
-                              ),
-                            ],
-                          ),
-                        );
-                      }
-
-                      if (state is NewsLoadingState) {
-                        return ListView.builder(
-                          itemCount: 11,
-                          itemBuilder: (_, __) => const ShimmerNewsCardWidget(),
-                        );
-                      }
-                      if (state is NewsLoadedState) {
-                        final topHeadlineModel = state.topHeadlineEntity;
-
-                        return ListView.builder(
-                          itemCount: topHeadlineModel.articles.length,
-                          itemBuilder: (_, index) {
-                            final article = topHeadlineModel.articles[index];
-
-                            return NewsCardWidget(articleModel: article);
-                          },
-                        );
-                      }
-                      return const Center(
-                        child: CircularProgressIndicator.adaptive(),
-                      );
-                    },
-                  ),
-                ),
-              ],
+            BlocConsumer<NewsCategoriesCubit, NewsCategoriesState>(
+              listener: (context, state) {
+                if (state is NewsCategoriesUpdatedState) {
+                  context.read<NewsBloc>().add(const GetNewsEvent());
+                }
+              },
+              builder: (context, state) => const NewsCategoriesWidget(),
             ),
-            const SearchBarWidget(),
+            Expanded(
+              child: BlocBuilder<NewsBloc, NewsState>(
+                builder: (context, state) {
+                  if (state is NewsErrorState) {
+                    return Center(
+                      child: Text('We got error ${state.error}'),
+                    );
+                  }
+                  if (state is NewsNoNetworkState) {
+                    return Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Icon(
+                            CupertinoIcons.wifi,
+                            size: 35,
+                          ),
+                          Text(state.error),
+                          const SizedBox(height: 20),
+                          GestureDetector(
+                            onTap: () => context
+                                .read<NewsBloc>()
+                                .add(const GetNewsEvent()),
+                            child: const Icon(CupertinoIcons.refresh),
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
+                  if (state is NewsLoadingState) {
+                    return ListView.builder(
+                      itemCount: 11,
+                      itemBuilder: (_, __) => const ShimmerNewsCardWidget(),
+                    );
+                  }
+                  if (state is NewsLoadedState) {
+                    final topHeadlineModel = state.topHeadlineEntity;
+
+                    return ListView.builder(
+                      itemCount: topHeadlineModel.articles.length,
+                      itemBuilder: (_, index) {
+                        final article = topHeadlineModel.articles[index];
+
+                        return NewsCardWidget(articleModel: article);
+                      },
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator.adaptive(),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
