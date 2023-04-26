@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:todo_bloc_practice/presentation/settings/cubit/theme_state.dart';
+import 'package:todo_bloc_practice/presentation/settings/regions_list.dart';
 import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
 @RoutePage()
@@ -22,20 +23,26 @@ class _SettingsPageState extends State<SettingsPage> {
         leading: SizedBox(),
         middle: Text('Settings'),
       ),
-      child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+      child: SafeArea(
+        child: Column(
           children: [
-            const Icon(CupertinoIcons.moon),
-            BlocBuilder<ThemeCubit, ThemeState>(
-              builder: (context, state) {
-                return CupertinoSwitch(
-                  value: isLightTheme(context: context) ? false : true,
-                  onChanged: (_) => context.read<ThemeCubit>().updateTheme(),
-                );
-              },
+            const RegionsListWidget(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Icon(CupertinoIcons.moon),
+                BlocBuilder<ThemeCubit, ThemeState>(
+                  builder: (context, state) {
+                    return CupertinoSwitch(
+                      value: isLightTheme(context: context) ? false : true,
+                      onChanged: (_) =>
+                          context.read<ThemeCubit>().updateTheme(),
+                    );
+                  },
+                ),
+                const Icon(CupertinoIcons.sun_max),
+              ],
             ),
-            const Icon(CupertinoIcons.sun_max),
           ],
         ),
       ),

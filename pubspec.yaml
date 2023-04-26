@@ -44,7 +44,7 @@ dependencies:
   shared_preferences:
   auto_route:
   internet_connection_checker:
-
+  dash_flags:
 
 dev_dependencies:
   flutter_test:

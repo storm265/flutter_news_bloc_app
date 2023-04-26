@@ -1,10 +1,10 @@
-import 'package:todo_bloc_practice/data/models/everything_model/everything_model.dart';
-import 'package:todo_bloc_practice/data/models/top_headline_model/top_headline_model.dart';
+import 'package:todo_bloc_practice/domain/entities/everything_entity.dart';
+import 'package:todo_bloc_practice/domain/entities/top_headline_entity.dart';
 
 abstract class NewsRemoteRepository {
-  Future<EverythingModel> getEverything({required String title});
+  Future<EverythingEntity> getEverything({required String title});
 
-  Future<TopHeadlineModel> getTopHeadlines({
+  Future<TopHeadlineEntity> getTopHeadlines({
     String countryCode = 'us',
     String category = 'general',
   });

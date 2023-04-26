@@ -76,7 +76,7 @@ class NewsPage extends StatelessWidget {
                         );
                       }
                       if (state is NewsLoadedState) {
-                        final topHeadlineModel = state.topHeadlineModel;
+                        final topHeadlineModel = state.topHeadlineEntity;
 
                         return ListView.builder(
                           itemCount: topHeadlineModel.articles.length,

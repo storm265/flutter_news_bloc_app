@@ -2,6 +2,8 @@ import 'package:todo_bloc_practice/data/datasources/news/news_remote_datasource.
 import 'package:todo_bloc_practice/data/models/article_model/article_model.dart';
 import 'package:todo_bloc_practice/data/models/top_headline_model/top_headline_model.dart';
 import 'package:todo_bloc_practice/data/models/everything_model/everything_model.dart';
+import 'package:todo_bloc_practice/domain/entities/everything_entity.dart';
+import 'package:todo_bloc_practice/domain/entities/top_headline_entity.dart';
 import 'package:todo_bloc_practice/domain/repository/news_remote_repository.dart';
 
 class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
@@ -11,13 +13,15 @@ class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
       : _newsRemoteDataSource = newsRemoteDataSource;
 
   @override
-  Future<EverythingModel> getEverything({required String title}) async {
+  Future<EverythingEntity> getEverything({required String title}) async {
     final result = await _newsRemoteDataSource.getEverything(title: title);
-    return EverythingModel.fromJson(result);
+    final model = EverythingModel.fromJson(result);
+    final entity = EverythingEntity.toEntity(topHeadlineModel: model);
+    return entity;
   }
 
   @override
-  Future<TopHeadlineModel> getTopHeadlines({
+  Future<TopHeadlineEntity> getTopHeadlines({
     String countryCode = 'us',
     String category = 'general',
   }) async {
@@ -26,9 +30,8 @@ class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
       countryCode: countryCode,
     );
     final model = TopHeadlineModel.fromJson(result);
-
-    //  return _fakeTopHeadlines;
-    return model;
+    final entity = TopHeadlineEntity.toEntity(topHeadlineModel: model);
+    return entity;
   }
 }
 

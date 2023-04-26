@@ -12,8 +12,8 @@ class NewsInitialState extends NewsState {}
 class NewsLoadingState extends NewsState {}
 
 class NewsLoadedState extends NewsState {
-  final TopHeadlineModel topHeadlineModel;
-  const NewsLoadedState({required this.topHeadlineModel});
+  final TopHeadlineEntity topHeadlineEntity;
+  const NewsLoadedState({required this.topHeadlineEntity});
 }
 
 class NewsErrorState extends NewsState {
