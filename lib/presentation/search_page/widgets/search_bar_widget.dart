@@ -11,9 +11,9 @@ class SearchBarWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Align(
-        alignment: Alignment.bottomCenter,
+        alignment: Alignment.topCenter,
         child: BlurWidget(
-          width: 150,
+          width: 300,
           child: CupertinoTextField(
             decoration: BoxDecoration(
               borderRadius: BorderRadiusDirectional.circular(12),

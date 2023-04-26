@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todo_bloc_practice/presentation/initial_page/cubit/initial_cubit.dart';
 import 'package:todo_bloc_practice/presentation/initial_page/widgets/dot_pager_widget/dots_pager_widget.dart';
@@ -67,7 +66,7 @@ class WelcomeWidget extends StatelessWidget {
                               .saveIsFirstTimeVisitLocally(isFirstVisit: false)
                               .then(
                                 (_) => AutoRouter.of(context)
-                                    .replace(const HomeRoute()),
+                                    .replace(const NavigationRoute()),
                               )
                           : await initialCubitRead
                               .changePageIndex(state.selectedIndex + 1);

@@ -4,14 +4,14 @@ import 'package:auto_route/annotations.dart';
 import 'state/navigation/navigation_cubit.dart';
 
 @RoutePage()
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class NavigationPage extends StatefulWidget {
+  const NavigationPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<NavigationPage> createState() => _NavigationPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _NavigationPageState extends State<NavigationPage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavigationCubit, NavigationState>(
@@ -24,6 +24,10 @@ class _HomePageState extends State<HomePage> {
               BottomNavigationBarItem(
                 icon: Icon(CupertinoIcons.news),
                 label: 'News',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(CupertinoIcons.search),
+                label: 'Search',
               ),
               BottomNavigationBarItem(
                 icon: Icon(CupertinoIcons.settings),
