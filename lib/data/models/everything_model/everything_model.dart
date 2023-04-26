@@ -9,8 +9,6 @@ class EverythingModel with _$EverythingModel {
   factory EverythingModel({
     required int? totalResults,
     required List<ArticleModel>? articles,
-    required String? username,
-    required String? email,
   }) = _EverythingModel;
 
   factory EverythingModel.fromJson(Map<String, Object?> json) =>

@@ -13,8 +13,14 @@ class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
       : _newsRemoteDataSource = newsRemoteDataSource;
 
   @override
-  Future<EverythingEntity> getEverything({required String title}) async {
-    final result = await _newsRemoteDataSource.getEverything(title: title);
+  Future<EverythingEntity> getEverything({
+    required String title,
+    String language = 'us',
+  }) async {
+    final result = await _newsRemoteDataSource.getEverything(
+      title: title,
+      language: language,
+    );
     final model = EverythingModel.fromJson(result);
     final entity = EverythingEntity.toEntity(topHeadlineModel: model);
     return entity;

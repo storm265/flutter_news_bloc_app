@@ -22,8 +22,6 @@ EverythingModel _$EverythingModelFromJson(Map<String, dynamic> json) {
 mixin _$EverythingModel {
   int? get totalResults => throw _privateConstructorUsedError;
   List<ArticleModel>? get articles => throw _privateConstructorUsedError;
-  String? get username => throw _privateConstructorUsedError;
-  String? get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +35,7 @@ abstract class $EverythingModelCopyWith<$Res> {
           EverythingModel value, $Res Function(EverythingModel) then) =
       _$EverythingModelCopyWithImpl<$Res, EverythingModel>;
   @useResult
-  $Res call(
-      {int? totalResults,
-      List<ArticleModel>? articles,
-      String? username,
-      String? email});
+  $Res call({int? totalResults, List<ArticleModel>? articles});
 }
 
 /// @nodoc
@@ -59,8 +53,6 @@ class _$EverythingModelCopyWithImpl<$Res, $Val extends EverythingModel>
   $Res call({
     Object? totalResults = freezed,
     Object? articles = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
   }) {
     return _then(_value.copyWith(
       totalResults: freezed == totalResults
@@ -71,14 +63,6 @@ class _$EverythingModelCopyWithImpl<$Res, $Val extends EverythingModel>
           ? _value.articles
           : articles // ignore: cast_nullable_to_non_nullable
               as List<ArticleModel>?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -91,11 +75,7 @@ abstract class _$$_EverythingModelCopyWith<$Res>
       __$$_EverythingModelCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int? totalResults,
-      List<ArticleModel>? articles,
-      String? username,
-      String? email});
+  $Res call({int? totalResults, List<ArticleModel>? articles});
 }
 
 /// @nodoc
@@ -111,8 +91,6 @@ class __$$_EverythingModelCopyWithImpl<$Res>
   $Res call({
     Object? totalResults = freezed,
     Object? articles = freezed,
-    Object? username = freezed,
-    Object? email = freezed,
   }) {
     return _then(_$_EverythingModel(
       totalResults: freezed == totalResults
@@ -123,14 +101,6 @@ class __$$_EverythingModelCopyWithImpl<$Res>
           ? _value._articles
           : articles // ignore: cast_nullable_to_non_nullable
               as List<ArticleModel>?,
-      username: freezed == username
-          ? _value.username
-          : username // ignore: cast_nullable_to_non_nullable
-              as String?,
-      email: freezed == email
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -139,10 +109,7 @@ class __$$_EverythingModelCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_EverythingModel implements _EverythingModel {
   _$_EverythingModel(
-      {required this.totalResults,
-      required final List<ArticleModel>? articles,
-      required this.username,
-      required this.email})
+      {required this.totalResults, required final List<ArticleModel>? articles})
       : _articles = articles;
 
   factory _$_EverythingModel.fromJson(Map<String, dynamic> json) =>
@@ -161,13 +128,8 @@ class _$_EverythingModel implements _EverythingModel {
   }
 
   @override
-  final String? username;
-  @override
-  final String? email;
-
-  @override
   String toString() {
-    return 'EverythingModel(totalResults: $totalResults, articles: $articles, username: $username, email: $email)';
+    return 'EverythingModel(totalResults: $totalResults, articles: $articles)';
   }
 
   @override
@@ -177,16 +139,13 @@ class _$_EverythingModel implements _EverythingModel {
             other is _$_EverythingModel &&
             (identical(other.totalResults, totalResults) ||
                 other.totalResults == totalResults) &&
-            const DeepCollectionEquality().equals(other._articles, _articles) &&
-            (identical(other.username, username) ||
-                other.username == username) &&
-            (identical(other.email, email) || other.email == email));
+            const DeepCollectionEquality().equals(other._articles, _articles));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, totalResults,
-      const DeepCollectionEquality().hash(_articles), username, email);
+      const DeepCollectionEquality().hash(_articles));
 
   @JsonKey(ignore: true)
   @override
@@ -205,9 +164,7 @@ class _$_EverythingModel implements _EverythingModel {
 abstract class _EverythingModel implements EverythingModel {
   factory _EverythingModel(
       {required final int? totalResults,
-      required final List<ArticleModel>? articles,
-      required final String? username,
-      required final String? email}) = _$_EverythingModel;
+      required final List<ArticleModel>? articles}) = _$_EverythingModel;
 
   factory _EverythingModel.fromJson(Map<String, dynamic> json) =
       _$_EverythingModel.fromJson;
@@ -216,10 +173,6 @@ abstract class _EverythingModel implements EverythingModel {
   int? get totalResults;
   @override
   List<ArticleModel>? get articles;
-  @override
-  String? get username;
-  @override
-  String? get email;
   @override
   @JsonKey(ignore: true)
   _$$_EverythingModelCopyWith<_$_EverythingModel> get copyWith =>

@@ -5,7 +5,6 @@ import 'package:todo_bloc_practice/services/network_source.dart';
 class NewsRemoteDataSourceImpl implements NewsRemoteDataSource {
   final _everything = '/everything?q=';
   final _topHeadlines = '/top-headlines?';
-  final _sources = '/top-headlines/sources?';
 
   final NetworkSource _network;
 
@@ -14,8 +13,10 @@ class NewsRemoteDataSourceImpl implements NewsRemoteDataSource {
   }) : _network = network;
 
   @override
-  Future<Map<String, dynamic>> getEverything({required String title}) async {
-    final response = await _network.get(path: '$_everything$title');
+  Future<Map<String, dynamic>> getEverything(
+      {required String title, String language = 'us'}) async {
+    final response =
+        await _network.get(path: '$_everything$title&language=$language');
 
     if (NetworkErrorService.isSuccessful(response)) {
       final rawData = await response.data as Map<String, dynamic>;

@@ -1,5 +1,7 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todo_bloc_practice/presentation/search_page/bloc/search_bloc.dart';
 import 'package:todo_bloc_practice/presentation/widgets/blur_widget.dart';
 import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
@@ -8,6 +10,7 @@ class SearchBarWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final searchBlocReader = context.read<SearchBloc>();
     return Padding(
       padding: const EdgeInsets.only(bottom: 8),
       child: Align(
@@ -15,6 +18,14 @@ class SearchBarWidget extends StatelessWidget {
         child: BlurWidget(
           width: 300,
           child: CupertinoTextField(
+            controller: searchBlocReader.searchTextController,
+            onChanged: (value) async {
+              await Future.delayed(const Duration(seconds: 1)).then(
+                (value) => searchBlocReader.add(
+                  const GetEverythingEvent(),
+                ),
+              );
+            },
             decoration: BoxDecoration(
               borderRadius: BorderRadiusDirectional.circular(12),
               color: isLightTheme(context: context)

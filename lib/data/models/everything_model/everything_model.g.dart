@@ -12,14 +12,10 @@ _$_EverythingModel _$$_EverythingModelFromJson(Map<String, dynamic> json) =>
       articles: (json['articles'] as List<dynamic>?)
           ?.map((e) => ArticleModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      username: json['username'] as String?,
-      email: json['email'] as String?,
     );
 
 Map<String, dynamic> _$$_EverythingModelToJson(_$_EverythingModel instance) =>
     <String, dynamic>{
       'totalResults': instance.totalResults,
       'articles': instance.articles,
-      'username': instance.username,
-      'email': instance.email,
     };
