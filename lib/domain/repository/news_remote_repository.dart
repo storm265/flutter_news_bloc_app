@@ -4,7 +4,7 @@ import 'package:todo_bloc_practice/domain/entities/top_headline_entity.dart';
 abstract class NewsRemoteRepository {
   Future<EverythingEntity> getEverything({
     required String title,
-    String language = 'us',
+    String language = 'en',
   });
 
   Future<TopHeadlineEntity> getTopHeadlines({

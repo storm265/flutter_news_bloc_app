@@ -56,24 +56,37 @@ class SearchPage extends StatelessWidget {
                     }
                     if (state is SearchFetchedState) {
                       final topHeadlineModel = state.everythingEntity;
-                      return topHeadlineModel.articles == null
+                      return topHeadlineModel.totalResults == 0
                           ? const Center(
                               child: Text('Not Found'),
                             )
-                          : ListView.builder(
-                              shrinkWrap: true,
-                              itemCount: topHeadlineModel.articles!.length,
-                              itemBuilder: (_, index) {
-                                final article =
-                                    topHeadlineModel.articles![index];
+                          : Column(
+                              children: [
+                                Text('Found: ${topHeadlineModel.totalResults}'),
+                                ListView.builder(
+                                  shrinkWrap: true,
+                                  itemCount: topHeadlineModel.articles!.length,
+                                  itemBuilder: (_, index) {
+                                    final article =
+                                        topHeadlineModel.articles![index];
 
-                                return CupertinoListTile(
-                                  title: Text(article.title!),
-                                  leading: article.urlToImage == null
-                                      ? const SizedBox()
-                                      : Image.network(article.urlToImage!),
-                                );
-                              },
+                                    return CupertinoListTile(
+                                      title: Text(article.title!),
+                                      leading: article.urlToImage == null
+                                          ? const SizedBox()
+                                          : ClipRRect(
+                                              borderRadius:
+                                                  BorderRadius.circular(8),
+                                              child: Image.network(
+                                                article.urlToImage!,
+                                                width: 50,
+                                                height: 30,
+                                              ),
+                                            ),
+                                    );
+                                  },
+                                ),
+                              ],
                             );
                     } else {
                       return const SizedBox();

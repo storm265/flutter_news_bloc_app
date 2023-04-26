@@ -14,7 +14,7 @@ class NewsRemoteDataSourceImpl implements NewsRemoteDataSource {
 
   @override
   Future<Map<String, dynamic>> getEverything(
-      {required String title, String language = 'us'}) async {
+      {required String title, String language = 'en'}) async {
     final response =
         await _network.get(path: '$_everything$title&language=$language');
 

@@ -40,5 +40,5 @@ class SearchBloc extends Bloc<SearchEvent, SearchState>
   }
 
   Future<EverythingEntity> _getEverything() async => await _newsRemoteRepository
-      .getEverything(title: searchTextController.text, language: 'us');
+      .getEverything(title: searchTextController.text, language: 'en');
 }
