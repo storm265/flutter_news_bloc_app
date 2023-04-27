@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_bloc_practice/presentation/settings/app_themes.dart';
 import 'package:todo_bloc_practice/presentation/settings/state/theme/theme_state.dart';
+import 'package:todo_bloc_practice/schemas/storage_scheme.dart';
 
 class ThemeCubit extends Cubit<ThemeState> {
   ThemeCubit() : super(const ThemeInitialState(theme: AppThemes.lightIOS)) {
@@ -27,11 +28,11 @@ class ThemeCubit extends Cubit<ThemeState> {
 
   Future<bool?> _getCurrentTheme() async {
     final prefs = await SharedPreferences.getInstance();
-    return prefs.getBool('isLightMode');
+    return prefs.getBool(StorageScheme.isLightMode);
   }
 
   Future<void> _saveTheme({required bool isLightMode}) async {
     final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool('isLightMode', isLightMode);
+    await prefs.setBool(StorageScheme.isLightMode, isLightMode);
   }
 }

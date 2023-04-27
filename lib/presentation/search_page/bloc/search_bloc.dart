@@ -4,17 +4,22 @@ import 'package:flutter/widgets.dart';
 import 'package:todo_bloc_practice/domain/entities/everything_entity.dart';
 import 'package:todo_bloc_practice/domain/repository/news_remote_repository.dart';
 import 'package:todo_bloc_practice/services/connection_status_service.dart';
+import 'package:todo_bloc_practice/services/storage_service.dart';
 
 part 'search_event.dart';
 part 'search_state.dart';
 
 class SearchBloc extends Bloc<SearchEvent, SearchState>
     with ConnectionStatusMixin {
+  final StorageService _storageService;
   final NewsRemoteRepository _newsRemoteRepository;
   final searchTextController = TextEditingController();
 
-  SearchBloc({required NewsRemoteRepository newsRemoteRepository})
+  SearchBloc(
+      {required NewsRemoteRepository newsRemoteRepository,
+      required StorageService storageService})
       : _newsRemoteRepository = newsRemoteRepository,
+        _storageService = storageService,
         super(const SearchInitialState()) {
     on<SearchEvent>((event, emit) async {
       await _onGetEverythingEvent(event, emit);
@@ -39,6 +44,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState>
     }
   }
 
-  Future<EverythingEntity> _getEverything() async => await _newsRemoteRepository
-      .getEverything(title: searchTextController.text, language: 'en');
+  Future<EverythingEntity> _getEverything() async =>
+      await _newsRemoteRepository.getEverything(
+        title: searchTextController.text,
+        language: await _storageService.getLocalRegion() ?? 'en',
+      );
 }

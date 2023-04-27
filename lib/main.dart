@@ -10,9 +10,11 @@ import 'package:todo_bloc_practice/presentation/initial_page/cubit/initial_cubit
 import 'package:todo_bloc_practice/presentation/news_page/state/news_bloc/news_bloc.dart';
 import 'package:todo_bloc_practice/presentation/news_page/state/news_categories_cubit/news_categories_cubit.dart';
 import 'package:todo_bloc_practice/presentation/search_page/bloc/search_bloc.dart';
+import 'package:todo_bloc_practice/presentation/settings/state/region/region_cubit.dart';
 import 'package:todo_bloc_practice/presentation/settings/state/theme/theme_cubit.dart';
 import 'package:todo_bloc_practice/services/network_source.dart';
 import 'package:todo_bloc_practice/services/route_service/route_service.dart';
+import 'package:todo_bloc_practice/services/storage_service.dart';
 
 Future<void> main() async {
   SystemChrome.setSystemUIOverlayStyle(
@@ -35,6 +37,7 @@ Future<void> main() async {
         ),
         BlocProvider<NewsBloc>(
           create: (_) => NewsBloc(
+            storageService: StorageService(),
             newsRemoteRepository: NewsRemoteRepositoryImpl(
               newsRemoteDataSource: NewsRemoteDataSourceImpl(
                 network: NetworkSource(),
@@ -44,8 +47,12 @@ Future<void> main() async {
               const GetNewsEvent(),
             ),
         ),
+        BlocProvider<RegionCubit>(
+          create: (_) => RegionCubit(storageService: StorageService()),
+        ),
         BlocProvider<SearchBloc>(
           create: (_) => SearchBloc(
+            storageService: StorageService(),
             newsRemoteRepository: NewsRemoteRepositoryImpl(
               newsRemoteDataSource: NewsRemoteDataSourceImpl(
                 network: NetworkSource(),
