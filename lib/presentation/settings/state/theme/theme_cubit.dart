@@ -20,13 +20,9 @@ class ThemeCubit extends Cubit<ThemeState> {
   Future<void> _setUpTheme() async {
     final isLightMode = await _getCurrentTheme();
 
-    if (isLightMode == null || isLightMode == true) {
-      print('light mode');
-      emit(const UpdatedThemeState(theme: AppThemes.lightIOS));
-    } else {
-      print('mode mode');
-      emit(const UpdatedThemeState(theme: AppThemes.darkIOS));
-    }
+    isLightMode == null || isLightMode == true
+        ? emit(const UpdatedThemeState(theme: AppThemes.lightIOS))
+        : emit(const UpdatedThemeState(theme: AppThemes.darkIOS));
   }
 
   Future<bool?> _getCurrentTheme() async {
