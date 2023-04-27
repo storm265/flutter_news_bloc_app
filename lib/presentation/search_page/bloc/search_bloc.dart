@@ -15,10 +15,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState>
   final NewsRemoteRepository _newsRemoteRepository;
   final searchTextController = TextEditingController();
 
-  SearchBloc(
-      {required NewsRemoteRepository newsRemoteRepository,
-      required StorageService storageService})
-      : _newsRemoteRepository = newsRemoteRepository,
+  SearchBloc({
+    required NewsRemoteRepository newsRemoteRepository,
+    required StorageService storageService,
+  })  : _newsRemoteRepository = newsRemoteRepository,
         _storageService = storageService,
         super(const SearchInitialState()) {
     on<SearchEvent>((event, emit) async {
@@ -44,9 +44,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState>
     }
   }
 
+// TODO add lang
   Future<EverythingEntity> _getEverything() async =>
       await _newsRemoteRepository.getEverything(
         title: searchTextController.text,
-        language: await _storageService.getLocalRegion() ?? 'en',
+        language: 'en',
       );
 }
