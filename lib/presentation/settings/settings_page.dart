@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
+import 'package:todo_bloc_practice/presentation/settings/state/theme/theme_cubit.dart';
 import 'package:auto_route/annotations.dart';
-import 'package:todo_bloc_practice/presentation/settings/cubit/theme_state.dart';
+import 'package:todo_bloc_practice/presentation/settings/state/theme/theme_state.dart';
 import 'package:todo_bloc_practice/presentation/settings/regions_list.dart';
 import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
@@ -34,7 +34,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 BlocBuilder<ThemeCubit, ThemeState>(
                   builder: (context, state) {
                     return CupertinoSwitch(
-                      value: isLightTheme(context: context) ? false : true,
+                      value: isLightTheme(context: context) ? true : false,
                       onChanged: (_) =>
                           context.read<ThemeCubit>().updateTheme(),
                     );

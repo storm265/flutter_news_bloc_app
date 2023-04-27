@@ -10,7 +10,7 @@ import 'package:todo_bloc_practice/presentation/initial_page/cubit/initial_cubit
 import 'package:todo_bloc_practice/presentation/news_page/state/news_bloc/news_bloc.dart';
 import 'package:todo_bloc_practice/presentation/news_page/state/news_categories_cubit/news_categories_cubit.dart';
 import 'package:todo_bloc_practice/presentation/search_page/bloc/search_bloc.dart';
-import 'package:todo_bloc_practice/presentation/settings/cubit/theme_cubit.dart';
+import 'package:todo_bloc_practice/presentation/settings/state/theme/theme_cubit.dart';
 import 'package:todo_bloc_practice/services/network_source.dart';
 import 'package:todo_bloc_practice/services/route_service/route_service.dart';
 
