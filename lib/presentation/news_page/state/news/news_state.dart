@@ -1,4 +1,4 @@
-part of 'news_bloc.dart';
+part of 'news_cubit.dart';
 
 abstract class NewsState extends Equatable {
   const NewsState();
@@ -9,7 +9,7 @@ abstract class NewsState extends Equatable {
 
 class NewsInitialState extends NewsState {}
 
-class NewsLoadingState extends NewsState {}
+class NewsGetState extends NewsState {}
 
 class NewsLoadedState extends NewsState {
   final TopHeadlineEntity topHeadlineEntity;

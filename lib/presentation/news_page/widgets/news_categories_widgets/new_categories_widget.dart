@@ -16,12 +16,17 @@ class NewsCategoriesWidget extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         itemCount: newsCategoriesCubitRead.newsCategories.length,
         itemBuilder: (context, index) => NewsContainerWidget(
-          callback: () =>
-              newsCategoriesCubitRead.updateSelectedNewsIndex(index),
-          isSelected:
-              newsCategoriesCubitRead.state.selectedCategoryIndex == index
-                  ? true
-                  : false,
+          callback: () {
+            newsCategoriesCubitRead.updateSelectedNewsIndex(index);
+          
+          },
+          isSelected: context
+                      .watch<NewsCategoriesCubit>()
+                      .state
+                      .selectedCategoryIndex ==
+                  index
+              ? true
+              : false,
           title: newsCategoriesCubitRead.newsCategories[index],
         ),
       ),

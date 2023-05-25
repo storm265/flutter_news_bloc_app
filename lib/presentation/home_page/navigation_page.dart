@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:auto_route/annotations.dart';
-import 'state/navigation/navigation_cubit.dart';
 
+import 'state/navigation/navigation_cubit.dart';
+import 'package:auto_route/annotations.dart';
 @RoutePage()
 class NavigationPage extends StatefulWidget {
   const NavigationPage({super.key});

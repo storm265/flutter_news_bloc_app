@@ -16,6 +16,9 @@ class NewsCategoriesCubit extends Cubit<NewsCategoriesState> {
     'Technology,'
   ];
 
+  String get getCurrentCategory =>
+      newsCategories[state.selectedCategoryIndex].toLowerCase();
+
   void updateSelectedNewsIndex(int newIndex) =>
       emit(NewsCategoriesUpdatedState(selectedCategoryIndex: newIndex));
 }

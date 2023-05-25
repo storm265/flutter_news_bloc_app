@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:auto_route/annotations.dart';
+import 'package:todo_bloc_practice/presentation/news_page/state/news/news_cubit.dart';
 import 'package:todo_bloc_practice/presentation/news_page/widgets/news_card_widget.dart';
-import 'state/news_bloc/news_bloc.dart';
 import 'state/news_categories_cubit/news_categories_cubit.dart';
 import 'widgets/news_categories_widgets/new_categories_widget.dart';
 import 'widgets/shimmer_news_card_widget.dart';
@@ -29,15 +29,18 @@ class NewsPage extends StatelessWidget {
         child: Column(
           children: [
             BlocConsumer<NewsCategoriesCubit, NewsCategoriesState>(
-              listener: (context, state) {
+              listener: (context, state) async {
                 if (state is NewsCategoriesUpdatedState) {
-                  context.read<NewsBloc>().add(const GetNewsEvent());
+                  await context.read<NewsCubit>().getNews(
+                      currentCategory: context
+                          .read<NewsCategoriesCubit>()
+                          .getCurrentCategory);
                 }
               },
               builder: (context, state) => const NewsCategoriesWidget(),
             ),
             Expanded(
-              child: BlocBuilder<NewsBloc, NewsState>(
+              child: BlocBuilder<NewsCubit, NewsState>(
                 builder: (context, state) {
                   if (state is NewsErrorState) {
                     return Center(
@@ -56,9 +59,12 @@ class NewsPage extends StatelessWidget {
                           Text(state.error),
                           const SizedBox(height: 20),
                           GestureDetector(
-                            onTap: () => context
-                                .read<NewsBloc>()
-                                .add(const GetNewsEvent()),
+                            onTap: () async => await context
+                                .read<NewsCubit>()
+                                .getNews(
+                                    currentCategory: context
+                                        .read<NewsCategoriesCubit>()
+                                        .getCurrentCategory),
                             child: const Icon(CupertinoIcons.refresh),
                           ),
                         ],
@@ -66,7 +72,7 @@ class NewsPage extends StatelessWidget {
                     );
                   }
 
-                  if (state is NewsLoadingState) {
+                  if (state is NewsGetState) {
                     return ListView.builder(
                       itemCount: 11,
                       itemBuilder: (_, __) => const ShimmerNewsCardWidget(),
