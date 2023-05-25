@@ -72,7 +72,7 @@ class NewsPage extends StatelessWidget {
                     );
                   }
 
-                  if (state is NewsGetState) {
+                  if (state is GetNewsState) {
                     return ListView.builder(
                       itemCount: 11,
                       itemBuilder: (_, __) => const ShimmerNewsCardWidget(),

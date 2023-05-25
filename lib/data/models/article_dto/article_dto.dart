@@ -1,10 +1,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-part 'article_model.freezed.dart';
-part 'article_model.g.dart';
+part 'article_dto.freezed.dart';
+part 'article_dto.g.dart';
 
 @freezed
-class ArticleModel with _$ArticleModel {
-  factory ArticleModel({
+class ArticleDTO with _$ArticleDTO {
+  factory ArticleDTO({
     required String? author,
     required String? title,
     required String? description,
@@ -12,8 +12,8 @@ class ArticleModel with _$ArticleModel {
     required String? urlToImage,
     required String? publishedAt,
     required String? content,
-  }) = _ArticleModel;
+  }) = _ArticleDTO;
 
-  factory ArticleModel.fromJson(Map<String, Object?> json) =>
-      _$ArticleModelFromJson(json);
+  factory ArticleDTO.fromJson(Map<String, Object?> json) =>
+      _$ArticleDTOFromJson(json);
 }

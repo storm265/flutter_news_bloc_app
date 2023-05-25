@@ -18,7 +18,6 @@ class NewsCategoriesWidget extends StatelessWidget {
         itemBuilder: (context, index) => NewsContainerWidget(
           callback: () {
             newsCategoriesCubitRead.updateSelectedNewsIndex(index);
-          
           },
           isSelected: context
                       .watch<NewsCategoriesCubit>()

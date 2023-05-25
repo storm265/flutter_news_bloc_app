@@ -1,4 +1,4 @@
-import 'package:todo_bloc_practice/data/models/article_model/article_model.dart';
+import 'package:todo_bloc_practice/data/models/article_dto/article_dto.dart';
 
 class ArticleEntity {
   String? author;
@@ -19,7 +19,8 @@ class ArticleEntity {
     required String? content,
   });
 
- static ArticleEntity toEntity({required ArticleModel articleModel}) => ArticleEntity(
+  static ArticleEntity toEntity({required ArticleDTO articleModel}) =>
+      ArticleEntity(
         author: articleModel.author,
         title: articleModel.title,
         description: articleModel.description,

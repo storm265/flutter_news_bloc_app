@@ -63,7 +63,7 @@ abstract class _$RouteService extends RootStackRouter {
 class DetailedNewsRoute extends PageRouteInfo<DetailedNewsRouteArgs> {
   DetailedNewsRoute({
     Key? key,
-    required ArticleModel articleModel,
+    required ArticleDTO articleModel,
     List<PageRouteInfo>? children,
   }) : super(
           DetailedNewsRoute.name,
@@ -88,7 +88,7 @@ class DetailedNewsRouteArgs {
 
   final Key? key;
 
-  final ArticleModel articleModel;
+  final ArticleDTO articleModel;
 
   @override
   String toString() {

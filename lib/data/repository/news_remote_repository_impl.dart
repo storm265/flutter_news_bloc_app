@@ -1,6 +1,6 @@
 import 'package:todo_bloc_practice/data/datasources/news/news_remote_datasource.dart';
-import 'package:todo_bloc_practice/data/models/top_headline_model/top_headline_model.dart';
-import 'package:todo_bloc_practice/data/models/everything_model/everything_model.dart';
+import 'package:todo_bloc_practice/data/models/everything_dto/everything_dto.dart';
+import 'package:todo_bloc_practice/data/models/top_headline_dto/top_headline_dto.dart';
 import 'package:todo_bloc_practice/domain/entities/everything_entity.dart';
 import 'package:todo_bloc_practice/domain/entities/top_headline_entity.dart';
 import 'package:todo_bloc_practice/domain/repository/news_remote_repository.dart';
@@ -20,7 +20,7 @@ class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
       title: title,
       language: language,
     );
-    final model = EverythingModel.fromJson(result);
+    final model = EverythingDTO.fromJson(result);
     final entity = EverythingEntity.toEntity(topHeadlineModel: model);
     return entity;
   }
@@ -34,7 +34,7 @@ class NewsRemoteRepositoryImpl implements NewsRemoteRepository {
       category: category,
       countryCode: countryCode,
     );
-    final model = TopHeadlineModel.fromJson(result);
+    final model = TopHeadlineDTO.fromJson(result);
     final entity = TopHeadlineEntity.toEntity(topHeadlineModel: model);
     return entity;
   }

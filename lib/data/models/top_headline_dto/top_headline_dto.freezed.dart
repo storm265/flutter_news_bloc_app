@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'everything_model.dart';
+part of 'top_headline_dto.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,34 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EverythingModel _$EverythingModelFromJson(Map<String, dynamic> json) {
-  return _EverythingModel.fromJson(json);
+TopHeadlineDTO _$TopHeadlineDTOFromJson(Map<String, dynamic> json) {
+  return _TopHeadlineDTO.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EverythingModel {
+mixin _$TopHeadlineDTO {
   int? get totalResults => throw _privateConstructorUsedError;
-  List<ArticleModel>? get articles => throw _privateConstructorUsedError;
+  List<ArticleDTO> get articles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EverythingModelCopyWith<EverythingModel> get copyWith =>
+  $TopHeadlineDTOCopyWith<TopHeadlineDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EverythingModelCopyWith<$Res> {
-  factory $EverythingModelCopyWith(
-          EverythingModel value, $Res Function(EverythingModel) then) =
-      _$EverythingModelCopyWithImpl<$Res, EverythingModel>;
+abstract class $TopHeadlineDTOCopyWith<$Res> {
+  factory $TopHeadlineDTOCopyWith(
+          TopHeadlineDTO value, $Res Function(TopHeadlineDTO) then) =
+      _$TopHeadlineDTOCopyWithImpl<$Res, TopHeadlineDTO>;
   @useResult
-  $Res call({int? totalResults, List<ArticleModel>? articles});
+  $Res call({int? totalResults, List<ArticleDTO> articles});
 }
 
 /// @nodoc
-class _$EverythingModelCopyWithImpl<$Res, $Val extends EverythingModel>
-    implements $EverythingModelCopyWith<$Res> {
-  _$EverythingModelCopyWithImpl(this._value, this._then);
+class _$TopHeadlineDTOCopyWithImpl<$Res, $Val extends TopHeadlineDTO>
+    implements $TopHeadlineDTOCopyWith<$Res> {
+  _$TopHeadlineDTOCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -52,91 +52,89 @@ class _$EverythingModelCopyWithImpl<$Res, $Val extends EverythingModel>
   @override
   $Res call({
     Object? totalResults = freezed,
-    Object? articles = freezed,
+    Object? articles = null,
   }) {
     return _then(_value.copyWith(
       totalResults: freezed == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
               as int?,
-      articles: freezed == articles
+      articles: null == articles
           ? _value.articles
           : articles // ignore: cast_nullable_to_non_nullable
-              as List<ArticleModel>?,
+              as List<ArticleDTO>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_EverythingModelCopyWith<$Res>
-    implements $EverythingModelCopyWith<$Res> {
-  factory _$$_EverythingModelCopyWith(
-          _$_EverythingModel value, $Res Function(_$_EverythingModel) then) =
-      __$$_EverythingModelCopyWithImpl<$Res>;
+abstract class _$$_TopHeadlineDTOCopyWith<$Res>
+    implements $TopHeadlineDTOCopyWith<$Res> {
+  factory _$$_TopHeadlineDTOCopyWith(
+          _$_TopHeadlineDTO value, $Res Function(_$_TopHeadlineDTO) then) =
+      __$$_TopHeadlineDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int? totalResults, List<ArticleModel>? articles});
+  $Res call({int? totalResults, List<ArticleDTO> articles});
 }
 
 /// @nodoc
-class __$$_EverythingModelCopyWithImpl<$Res>
-    extends _$EverythingModelCopyWithImpl<$Res, _$_EverythingModel>
-    implements _$$_EverythingModelCopyWith<$Res> {
-  __$$_EverythingModelCopyWithImpl(
-      _$_EverythingModel _value, $Res Function(_$_EverythingModel) _then)
+class __$$_TopHeadlineDTOCopyWithImpl<$Res>
+    extends _$TopHeadlineDTOCopyWithImpl<$Res, _$_TopHeadlineDTO>
+    implements _$$_TopHeadlineDTOCopyWith<$Res> {
+  __$$_TopHeadlineDTOCopyWithImpl(
+      _$_TopHeadlineDTO _value, $Res Function(_$_TopHeadlineDTO) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? totalResults = freezed,
-    Object? articles = freezed,
+    Object? articles = null,
   }) {
-    return _then(_$_EverythingModel(
+    return _then(_$_TopHeadlineDTO(
       totalResults: freezed == totalResults
           ? _value.totalResults
           : totalResults // ignore: cast_nullable_to_non_nullable
               as int?,
-      articles: freezed == articles
+      articles: null == articles
           ? _value._articles
           : articles // ignore: cast_nullable_to_non_nullable
-              as List<ArticleModel>?,
+              as List<ArticleDTO>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$_EverythingModel implements _EverythingModel {
-  _$_EverythingModel(
-      {required this.totalResults, required final List<ArticleModel>? articles})
+class _$_TopHeadlineDTO implements _TopHeadlineDTO {
+  _$_TopHeadlineDTO(
+      {required this.totalResults, required final List<ArticleDTO> articles})
       : _articles = articles;
 
-  factory _$_EverythingModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EverythingModelFromJson(json);
+  factory _$_TopHeadlineDTO.fromJson(Map<String, dynamic> json) =>
+      _$$_TopHeadlineDTOFromJson(json);
 
   @override
   final int? totalResults;
-  final List<ArticleModel>? _articles;
+  final List<ArticleDTO> _articles;
   @override
-  List<ArticleModel>? get articles {
-    final value = _articles;
-    if (value == null) return null;
+  List<ArticleDTO> get articles {
     if (_articles is EqualUnmodifiableListView) return _articles;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_articles);
   }
 
   @override
   String toString() {
-    return 'EverythingModel(totalResults: $totalResults, articles: $articles)';
+    return 'TopHeadlineDTO(totalResults: $totalResults, articles: $articles)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EverythingModel &&
+            other is _$_TopHeadlineDTO &&
             (identical(other.totalResults, totalResults) ||
                 other.totalResults == totalResults) &&
             const DeepCollectionEquality().equals(other._articles, _articles));
@@ -150,31 +148,31 @@ class _$_EverythingModel implements _EverythingModel {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EverythingModelCopyWith<_$_EverythingModel> get copyWith =>
-      __$$_EverythingModelCopyWithImpl<_$_EverythingModel>(this, _$identity);
+  _$$_TopHeadlineDTOCopyWith<_$_TopHeadlineDTO> get copyWith =>
+      __$$_TopHeadlineDTOCopyWithImpl<_$_TopHeadlineDTO>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EverythingModelToJson(
+    return _$$_TopHeadlineDTOToJson(
       this,
     );
   }
 }
 
-abstract class _EverythingModel implements EverythingModel {
-  factory _EverythingModel(
+abstract class _TopHeadlineDTO implements TopHeadlineDTO {
+  factory _TopHeadlineDTO(
       {required final int? totalResults,
-      required final List<ArticleModel>? articles}) = _$_EverythingModel;
+      required final List<ArticleDTO> articles}) = _$_TopHeadlineDTO;
 
-  factory _EverythingModel.fromJson(Map<String, dynamic> json) =
-      _$_EverythingModel.fromJson;
+  factory _TopHeadlineDTO.fromJson(Map<String, dynamic> json) =
+      _$_TopHeadlineDTO.fromJson;
 
   @override
   int? get totalResults;
   @override
-  List<ArticleModel>? get articles;
+  List<ArticleDTO> get articles;
   @override
   @JsonKey(ignore: true)
-  _$$_EverythingModelCopyWith<_$_EverythingModel> get copyWith =>
+  _$$_TopHeadlineDTOCopyWith<_$_TopHeadlineDTO> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:todo_bloc_practice/data/models/article_model/article_model.dart';
+import 'package:todo_bloc_practice/data/models/article_dto/article_dto.dart';
 import 'package:todo_bloc_practice/presentation/detailed_news_page/detailed_news_page.dart';
 import 'package:todo_bloc_practice/presentation/home_page/navigation_page.dart';
 import 'package:todo_bloc_practice/presentation/search_page/search_page.dart';

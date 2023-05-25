@@ -1,18 +1,17 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:todo_bloc_practice/data/models/article_model/article_model.dart';
-import 'package:todo_bloc_practice/data/models/top_headline_model/top_headline_model.dart';
+import 'package:todo_bloc_practice/data/models/article_dto/article_dto.dart';
+import 'package:todo_bloc_practice/data/models/top_headline_dto/top_headline_dto.dart';
 
 class TopHeadlineEntity {
   int? totalResults;
+  List<ArticleDTO> articles;
 
-  List<ArticleModel> articles;
   TopHeadlineEntity({
     this.totalResults,
     required this.articles,
   });
 
   static TopHeadlineEntity toEntity(
-          {required TopHeadlineModel topHeadlineModel}) =>
+          {required TopHeadlineDTO topHeadlineModel}) =>
       TopHeadlineEntity(
         articles: topHeadlineModel.articles,
         totalResults: topHeadlineModel.totalResults,

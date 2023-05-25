@@ -4,13 +4,13 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:auto_route/annotations.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_bloc_practice/data/models/article_model/article_model.dart';
+import 'package:todo_bloc_practice/data/models/article_dto/article_dto.dart';
 import 'package:todo_bloc_practice/presentation/widgets/blur_widget.dart';
 import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
 @RoutePage()
 class DetailedNewsPage extends StatelessWidget {
-  final ArticleModel articleModel;
+  final ArticleDTO articleModel;
   const DetailedNewsPage({
     super.key,
     required this.articleModel,

@@ -1,20 +1,20 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'everything_model.dart';
+part of 'everything_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EverythingModel _$$_EverythingModelFromJson(Map<String, dynamic> json) =>
-    _$_EverythingModel(
+_$_EverythingDTO _$$_EverythingDTOFromJson(Map<String, dynamic> json) =>
+    _$_EverythingDTO(
       totalResults: json['totalResults'] as int?,
       articles: (json['articles'] as List<dynamic>?)
-          ?.map((e) => ArticleModel.fromJson(e as Map<String, dynamic>))
+          ?.map((e) => ArticleDTO.fromJson(e as Map<String, dynamic>))
           .toList(),
     );
 
-Map<String, dynamic> _$$_EverythingModelToJson(_$_EverythingModel instance) =>
+Map<String, dynamic> _$$_EverythingDTOToJson(_$_EverythingDTO instance) =>
     <String, dynamic>{
       'totalResults': instance.totalResults,
       'articles': instance.articles,

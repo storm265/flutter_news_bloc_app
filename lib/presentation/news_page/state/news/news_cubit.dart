@@ -3,7 +3,6 @@ import 'package:equatable/equatable.dart';
 import 'package:todo_bloc_practice/domain/entities/top_headline_entity.dart';
 import 'dart:async';
 import 'package:todo_bloc_practice/domain/repository/news_remote_repository.dart';
-import 'package:todo_bloc_practice/presentation/news_page/state/news_categories_cubit/news_categories_cubit.dart';
 import 'package:todo_bloc_practice/services/connection_status_service.dart';
 import 'package:todo_bloc_practice/services/storage_service.dart';
 
@@ -13,8 +12,6 @@ class NewsCubit extends Cubit<NewsState> with ConnectionStatusMixin {
   final NewsRemoteRepository _newsRemoteRepository;
   final StorageService _storageService;
 
-  final newsCategoriesCubit = NewsCategoriesCubit();
-
   NewsCubit({
     required NewsRemoteRepository newsRemoteRepository,
     required StorageService storageService,
@@ -23,7 +20,7 @@ class NewsCubit extends Cubit<NewsState> with ConnectionStatusMixin {
         super(NewsInitialState());
 
   Future<void> getNews({required String currentCategory}) async {
-    emit(NewsGetState());
+    emit(GetNewsState());
     try {
       if (await isConnected()) {
         final topTitlesModel =

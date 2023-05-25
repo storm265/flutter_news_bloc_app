@@ -2,12 +2,12 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:todo_bloc_practice/data/models/article_model/article_model.dart';
+import 'package:todo_bloc_practice/data/models/article_dto/article_dto.dart';
 import 'package:todo_bloc_practice/services/route_service/route_service.dart';
 import 'package:todo_bloc_practice/utils/is_light_theme.dart';
 
 class NewsCardWidget extends StatelessWidget {
-  final ArticleModel articleModel;
+  final ArticleDTO articleModel;
   const NewsCardWidget({
     super.key,
     required this.articleModel,
