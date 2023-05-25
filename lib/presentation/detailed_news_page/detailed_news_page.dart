@@ -1,8 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:auto_route/annotations.dart';
 import 'package:intl/intl.dart';
 import 'package:todo_bloc_practice/data/models/article_dto/article_dto.dart';
 import 'package:todo_bloc_practice/presentation/widgets/blur_widget.dart';

@@ -1,4 +1,4 @@
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/widgets.dart';
 import 'package:todo_bloc_practice/domain/entities/everything_entity.dart';
@@ -44,10 +44,9 @@ class SearchBloc extends Bloc<SearchEvent, SearchState>
     }
   }
 
-// TODO add lang
   Future<EverythingEntity> _getEverything() async =>
       await _newsRemoteRepository.getEverything(
         title: searchTextController.text,
-        language: 'en',
+        language: await _storageService.getLocalRegion() ?? 'en',
       );
 }
